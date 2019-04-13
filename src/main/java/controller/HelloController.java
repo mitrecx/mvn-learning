@@ -12,7 +12,7 @@ public class HelloController implements Controller {
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("helloSpring"); 
 		
-		//绑定数据，等价于 request.setAttribute
+		//绑定数据，等价于 request.setAttribute 
 		mav.getModel().put("msg", "由 mav.getModel().put传出"); 
 		return mav;
 	}
