@@ -12,8 +12,8 @@ public class HelloController implements Controller {
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("helloSpring"); 
 		
-		//°ó¶¨Êý¾Ý£¬µÈ¼ÛÓÚ request.setAttribute 
-		mav.getModel().put("msg", "ÓÉ mav.getModel().put´«³ö"); 
+		//request.setAttribute 
+		mav.getModel().put("msg", "ç”± mav.getModel().put ä¼ å‡º"); 
 		return mav;
 	}
 
