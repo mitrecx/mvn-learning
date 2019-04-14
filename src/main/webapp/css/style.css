@@ -25,3 +25,14 @@ form div{
 	border: 1px solid red;
 	color:red;
 }
+
+table{
+	font-style:italic;
+	font-size:24px;
+}
+.row1{
+	background-color:#fff888;
+}
+.row2{
+	background-color:#f0f0f0;
+}

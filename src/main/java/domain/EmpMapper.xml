@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="empSql">
+
+	<select id="findEmp" resultType="domain.Employee">
+		select * from emp
+	</select>
+
+	<select id="findEmpByName" parameterType="java.lang.String" resultType="domain.Employee">
+		select * from emp
+		where name like #{name}
+	</select>
+
+	<select id="findEmpById" parameterType="int" resultType="domain.Employee">
+		select * from emp
+		where id=#{id}
+	</select>
+
+	<insert id="saveEmpByEmp" parameterType="domain.Employee">
+		insert into emp(name,age,salary)
+		values(#{name},#{age},#{salary})
+	</insert>
+	<insert id="saveEmpByMap" parameterType="java.util.Map">
+		insert into emp(name,age,salary)
+		values(#{xm},#{nl},#{xs})
+	</insert>
+
+	<delete id="deleteEmpByName" parameterType="java.lang.String">
+		delete from emp
+		where name=#{name}
+	</delete>
+
+	<update id="updateEmpById" parameterType="java.util.Map" >
+		update emp
+		set salary=#{salary}
+		where id=#{id}
+	</update>
+</mapper>
