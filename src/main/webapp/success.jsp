@@ -23,12 +23,6 @@
 
 
 	<h3>员工信息</h3>
-	<h1><%=ic2 %></h1>
-	<p>----</p>
-	<h1><c:out value="${requestScope.ic2}"></c:out></h1>
-	<h1><c:out value="${pageScope.ic2}"></c:out></h1>
-	<h1><c:out value="${ic2}"></c:out></h1>
-	<h1><c:out value="${application.ic2}"></c:out></h1>
 	<table border="1" width="60%" cellpadding="0" cellspacing="0">
 		<tr>
 			<td>ID</td>
@@ -37,11 +31,7 @@
 			<td>薪水</td>
 			<td>操作</td>
 		</tr>
-		<%--
-			for (int i = 0; i < emps.size(); i++) {
-				Employee e = emps.get(i);
-		--%>
-		<c:forEach items="${emps}" var="e">
+		<c:forEach items="${requestScope.emplist}" var="e">
 			<tr>
 				<td><c:out value="${e.id}"/></td>
 				<td><c:out value="${e.name}"/></td>
@@ -53,8 +43,8 @@
 	</table>
 	<p>
 		总数:
-		<%=infoCount%></p>
-	<p id="totalNum">总数:</p>
+		<c:out value="${infoCount }"></c:out></p>
+	<p id="totalNum">total:</p>
 	<button type="button" onclick="nextPage();">上一页</button>
 	<button type="button">下一页</button>
 
