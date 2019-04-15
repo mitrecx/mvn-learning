@@ -2,7 +2,9 @@ package controller;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,12 +38,18 @@ public class ActionServlet extends HttpServlet{
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 			SqlSession sSession = sqlSessionFactory.openSession();
 			System.out.println("MyBatis show");
-
-			List<Employee> list=sSession.selectList("findEmp");
+			Map<String,Integer> param=new HashMap<String, Integer>();
+			param.put("start", 1);
+			param.put("end", 5);
+			List<Employee> list=sSession.selectList("findEmp",param);
+			
+			int infoCount = sSession.selectOne("findEmpCount");
+			System.out.println(infoCount);
 			
 			// 使用转发，将处理交给empList.jsp
 			// 1. 绑定数据 (绑定 list 这个集合)
 			request.setAttribute("emplist", list);
+			request.setAttribute("infoCount", infoCount);
 			// 2. 获得转发器
 			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
 			// 3. 转发

@@ -4,8 +4,14 @@
 
 <mapper namespace="empSql">
 
-	<select id="findEmp" resultType="domain.Employee">
+	<!-- 分页查询 emp 表 -->
+	<select id="findEmp" parameterType="java.util.Map" resultType="domain.Employee">
 		select * from emp
+		limit #{start},#{end}
+	</select>
+	
+	<select id="findEmpCount" resultType="java.lang.Integer" >
+		select count(1) from emp
 	</select>
 
 	<select id="findEmpByName" parameterType="java.lang.String" resultType="domain.Employee">
