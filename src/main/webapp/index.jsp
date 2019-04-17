@@ -16,7 +16,7 @@
 			<h1>登录</h1>
 			<p>
 				账号：<input id="name" name="name" type="text" onblur="checkName();"/>
-				<span id="nameMsg">3-20 位 字母、数字、下划线</span>
+				<span id="nameMsg">3-20 位字母、数字、下划线</span>
 			</p>
 			<p>
 				密码：<input name="password" type="password" />
